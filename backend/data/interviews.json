@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "text": "Tell me about a challenging project you worked on and how you overcame the difficulties."
+    },
+    {
+        "id": 2,
+        "text": "Describe a time when you had to work under pressure. How did you handle it?"
+    },
+    {
+        "id": 3,
+        "text": "What are your greatest strengths and weaknesses?"
+    },
+    {
+        "id": 4,
+        "text": "Where do you see yourself in five years?"
+    },
+    {
+        "id": 5,
+        "text": "Why do you want to work for this company?"
+    },
+    {
+        "id": 6,
+        "text": "Describe a situation where you had a conflict with a coworker and how you resolved it."
+    },
+    {
+        "id": 7,
+        "text": "What motivates you to perform your best work?"
+    },
+    {
+        "id": 8,
+        "text": "Tell me about a time you failed. What did you learn from the experience?"
+    },
+    {
+        "id": 9,
+        "text": "How do you prioritize your tasks when you have multiple deadlines?"
+    },
+    {
+        "id": 10,
+        "text": "Give an example of a goal you reached and tell me how you achieved it."
+    }
+]
