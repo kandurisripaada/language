@@ -1,0 +1,13 @@
+{
+    "type": "grammar",
+    "transcript": "I goes to the store yesterday.",
+    "duration": 5,
+    "wordCount": 6,
+    "wpm": 72,
+    "fillerWords": [],
+    "repeatingWords": [],
+    "question": {
+        "id": 101,
+        "text": "I went to the store yesterday."
+    }
+}

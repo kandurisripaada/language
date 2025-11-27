@@ -1,0 +1,13 @@
+{
+    "type": "topic",
+    "transcript": "I think climate change is a serious issue. We need to reduce carbon emissions and switch to renewable energy sources like solar and wind power. It's important for the future of our planet.",
+    "duration": 15,
+    "wordCount": 30,
+    "wpm": 120,
+    "fillerWords": [],
+    "repeatingWords": [],
+    "question": {
+        "id": 1,
+        "text": "What are your thoughts on climate change?"
+    }
+}

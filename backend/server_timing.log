@@ -1,0 +1,24 @@
+[2025-11-27T09:55:58.137Z] Model: gemini-2.5-flash | Duration: 2139ms
+[2025-11-27T09:56:42.797Z] Model: gemini-2.5-flash | Duration: 1564ms
+[2025-11-27T09:57:05.835Z] Model: gemini-2.5-flash | Duration: 10026ms
+[2025-11-27T09:57:26.625Z] Model: gemini-2.5-flash | Duration: 26621ms
+[2025-11-27T09:57:37.015Z] Model: gemini-2.5-flash | Duration: 17001ms
+[2025-11-27T09:57:38.078Z] Model: gemini-2.5-flash | Duration: 13629ms
+[2025-11-27T09:57:38.080Z] ERROR Model: gemini-2.5-flash | Duration: 13631ms | Error: The model is overloaded. Please try again later.
+[2025-11-27T09:57:41.054Z] Model: gemini-2.5-flash | Duration: 16613ms
+[2025-11-27T09:57:45.968Z] Model: gemini-2.5-flash | Duration: 10254ms
+[2025-11-27T09:58:05.451Z] Model: gemini-2.5-flash | Duration: 33359ms
+[2025-11-27T09:58:14.039Z] Model: gemini-2.5-pro | Duration: 35953ms
+[2025-11-27T09:58:18.286Z] Model: gemini-2.5-flash | Duration: 25124ms
+[2025-11-27T09:59:03.653Z] Model: gemini-2.5-pro | Duration: 45364ms
+[2025-11-27T10:01:23.325Z] Model: gemini-2.5-flash | Duration: 20990ms
+[2025-11-27T10:02:31.314Z] Model: gemini-2.5-flash | Duration: 8383ms
+[2025-11-27T10:02:34.909Z] Model: gemini-2.5-flash | Duration: 25706ms
+[2025-11-27T10:04:46.653Z] Model: gemini-2.5-flash | Duration: 13357ms
+[2025-11-27T10:04:49.197Z] Model: gemini-2.5-flash | Duration: 15854ms
+[2025-11-27T10:04:55.626Z] Model: gemini-2.5-flash | Duration: 22281ms
+[2025-11-27T10:05:35.638Z] Model: gemini-2.5-pro | Duration: 40006ms
+[2025-11-27T10:08:19.309Z] Model: gemini-2.5-flash | Duration: 8941ms
+[2025-11-27T10:08:41.591Z] Model: gemini-2.5-flash | Duration: 16742ms
+[2025-11-27T10:09:10.556Z] Model: gemini-2.5-flash | Duration: 23423ms
+[2025-11-27T10:09:56.581Z] Model: gemini-2.5-pro | Duration: 46022ms

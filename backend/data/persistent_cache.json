@@ -1,0 +1,491 @@
+{
+  "topicCache": [],
+  "grammarCache": {
+    "basic": [
+      {
+        "id": 1,
+        "text": "I like apples."
+      },
+      {
+        "id": 2,
+        "text": "She drinks water."
+      },
+      {
+        "id": 3,
+        "text": "We play outside."
+      },
+      {
+        "id": 4,
+        "text": "He reads a book."
+      },
+      {
+        "id": 5,
+        "text": "They live in a city."
+      },
+      {
+        "id": 6,
+        "text": "You speak English."
+      },
+      {
+        "id": 7,
+        "text": "The sun shines brightly."
+      },
+      {
+        "id": 8,
+        "text": "My cat sleeps a lot."
+      },
+      {
+        "id": 9,
+        "text": "Do you like coffee?"
+      },
+      {
+        "id": 10,
+        "text": "He does not eat meat."
+      },
+      {
+        "id": 11,
+        "text": "Birds fly high."
+      },
+      {
+        "id": 12,
+        "text": "We watch TV."
+      },
+      {
+        "id": 13,
+        "text": "She walks to school."
+      },
+      {
+        "id": 14,
+        "text": "I often cook dinner."
+      },
+      {
+        "id": 15,
+        "text": "He works in an office."
+      },
+      {
+        "id": 16,
+        "text": "I visited my friend."
+      },
+      {
+        "id": 17,
+        "text": "She ate a sandwich."
+      },
+      {
+        "id": 18,
+        "text": "They went to the park."
+      },
+      {
+        "id": 19,
+        "text": "He saw a movie."
+      },
+      {
+        "id": 20,
+        "text": "We bought new shoes."
+      },
+      {
+        "id": 21,
+        "text": "My dog slept all day."
+      },
+      {
+        "id": 22,
+        "text": "You called me yesterday."
+      },
+      {
+        "id": 23,
+        "text": "He did not come."
+      },
+      {
+        "id": 24,
+        "text": "Did she finish it?"
+      },
+      {
+        "id": 25,
+        "text": "I walked home quickly."
+      },
+      {
+        "id": 26,
+        "text": "They made a cake."
+      },
+      {
+        "id": 27,
+        "text": "She wrote a letter."
+      },
+      {
+        "id": 28,
+        "text": "We had a good time."
+      },
+      {
+        "id": 29,
+        "text": "He gave me a present."
+      },
+      {
+        "id": 30,
+        "text": "I woke up early."
+      },
+      {
+        "id": 31,
+        "text": "I am happy."
+      },
+      {
+        "id": 32,
+        "text": "She is a student."
+      },
+      {
+        "id": 33,
+        "text": "We are friends."
+      },
+      {
+        "id": 34,
+        "text": "The sky is blue."
+      },
+      {
+        "id": 35,
+        "text": "It was cold yesterday."
+      },
+      {
+        "id": 36,
+        "text": "They were at home."
+      },
+      {
+        "id": 37,
+        "text": "He was tired."
+      },
+      {
+        "id": 38,
+        "text": "Is she kind?"
+      },
+      {
+        "id": 39,
+        "text": "Were you busy?"
+      },
+      {
+        "id": 40,
+        "text": "I am not sad."
+      }
+    ],
+    "intermediate": [
+      {
+        "id": 1,
+        "text": "The early morning mist often shrouds the valley, creating a picturesque but somewhat eerie scene."
+      },
+      {
+        "id": 2,
+        "text": "She finished her report punctually, and then she submitted it to her supervisor before the deadline."
+      },
+      {
+        "id": 3,
+        "text": "They have been diligently practicing their presentation skills for several weeks now, hoping to impress the board."
+      },
+      {
+        "id": 4,
+        "text": "If the weather improves significantly by afternoon, we will definitely go for a long walk along the beach."
+      },
+      {
+        "id": 5,
+        "text": "He had already left the office when I arrived, so I couldn't discuss the new project with him."
+      },
+      {
+        "id": 6,
+        "text": "While the chef is preparing the main course, the waitstaff are carefully arranging the tables for the evening rush."
+      },
+      {
+        "id": 7,
+        "text": "By this time next year, I will have completed my master's degree and started my new career."
+      },
+      {
+        "id": 8,
+        "text": "The old library smells of aged paper and dust, yet it remains a popular quiet study spot for many students."
+      },
+      {
+        "id": 9,
+        "text": "She was watching a fascinating documentary when her phone suddenly rang, interrupting her concentration."
+      },
+      {
+        "id": 10,
+        "text": "Many scientists have discovered innovative solutions to environmental challenges over the past decade."
+      },
+      {
+        "id": 11,
+        "text": "The team worked tirelessly all night, but they still couldn't fix the unexpected software bug."
+      },
+      {
+        "id": 12,
+        "text": "This time tomorrow, we will be flying over the Atlantic Ocean, heading towards our long-awaited vacation."
+      },
+      {
+        "id": 13,
+        "text": "Although he usually prefers to work alone, he sometimes collaborates with colleagues on larger assignments."
+      },
+      {
+        "id": 14,
+        "text": "They had been living in that small village for twenty years before they decided to move to the city."
+      },
+      {
+        "id": 15,
+        "text": "I have visited several European countries, and I have always enjoyed immersing myself in local cultures."
+      },
+      {
+        "id": 16,
+        "text": "After she finally found her lost keys, she realized they had been in her coat pocket all along."
+      },
+      {
+        "id": 17,
+        "text": "We will leave early tomorrow morning, or we will miss the first train to the capital city."
+      },
+      {
+        "id": 18,
+        "text": "Because the traffic is unusually heavy today, I am currently stuck in a massive jam on the highway."
+      },
+      {
+        "id": 19,
+        "text": "He was listening intently to the radio broadcast, and his dog was sleeping peacefully by his feet."
+      },
+      {
+        "id": 20,
+        "text": "Some people enjoy the hustle and bustle of city life, but others prefer the tranquility of the countryside."
+      },
+      {
+        "id": 21,
+        "text": "By next month, she will have been teaching at this university for fifteen years, quite an achievement."
+      },
+      {
+        "id": 22,
+        "text": "Since it started raining this morning, the children have been playing board games indoors."
+      },
+      {
+        "id": 23,
+        "text": "The ancient ruins stood majestically on the hill, where they had witnessed centuries of history unfold."
+      },
+      {
+        "id": 24,
+        "text": "If you don't hurry up, you will definitely be late for your appointment with the dentist."
+      },
+      {
+        "id": 25,
+        "text": "The concert had already begun, so we had to find our seats very quietly in the dark."
+      },
+      {
+        "id": 26,
+        "text": "My neighbor is currently planting new flowers in her garden, and her children are helping her."
+      },
+      {
+        "id": 27,
+        "text": "While I am working on my project tonight, my roommate will be studying for his final exams."
+      },
+      {
+        "id": 28,
+        "text": "Whenever he feels stressed, he usually goes for a long run to clear his mind."
+      },
+      {
+        "id": 29,
+        "text": "They had been discussing the proposal for hours, yet they still hadn't reached a unanimous decision."
+      },
+      {
+        "id": 30,
+        "text": "Although I have read that novel twice, I still find new details and interpretations every time."
+      },
+      {
+        "id": 31,
+        "text": "The power went out unexpectedly, so everyone grabbed their flashlights and candles."
+      },
+      {
+        "id": 32,
+        "text": "You can borrow my umbrella if you think it will rain later this afternoon."
+      },
+      {
+        "id": 33,
+        "text": "She is learning Spanish online, and her brother is practicing his guitar in the next room."
+      },
+      {
+        "id": 34,
+        "text": "The company had already launched the new product when the competitor announced a similar innovation."
+      },
+      {
+        "id": 35,
+        "text": "The museum curator often explains the intricate history behind each artifact to curious visitors."
+      },
+      {
+        "id": 36,
+        "text": "By the time you arrive, I will have been waiting for over an hour, so please try to be punctual."
+      },
+      {
+        "id": 37,
+        "text": "I have been studying English for five years, and I have made significant progress."
+      },
+      {
+        "id": 38,
+        "text": "Before the internet became widespread, people relied heavily on libraries and encyclopedias for information."
+      },
+      {
+        "id": 39,
+        "text": "We will try to solve this complex problem, or we will seek expert advice if we get stuck."
+      },
+      {
+        "id": 40,
+        "text": "As the sun is slowly setting, the entire sky is transforming into a breathtaking palette of vibrant colors."
+      }
+    ],
+    "advanced": [
+      {
+        "id": 1,
+        "text": "Had the board of directors heeded the early warnings about market volatility, the company would not be in such a precarious financial position today."
+      },
+      {
+        "id": 2,
+        "text": "Scarcely had the delegates settled into their seats when the keynote speaker began a polemical tirade that left everyone speechless."
+      },
+      {
+        "id": 3,
+        "text": "Having meticulously collated the data from myriad sources, the researchers were finally in a position to challenge the prevailing orthodoxy."
+      },
+      {
+        "id": 4,
+        "text": "It is of paramount importance that every employee be made aware of the new cybersecurity protocols, lest sensitive information be compromised."
+      },
+      {
+        "id": 5,
+        "text": "What truly distinguishes this era of technological advancement is not merely the pace of change, but its ubiquitous and pervasive impact on daily life."
+      },
+      {
+        "id": 6,
+        "text": "The politician's burgeoning popularity was, for all intents and purposes, predicated on a series of populist promises that were ultimately untenable."
+      },
+      {
+        "id": 7,
+        "text": "Notwithstanding the project's considerable success, the team was on the horns of a dilemma regarding how to scale operations without sacrificing quality."
+      },
+      {
+        "id": 8,
+        "text": "So profound was the philosopher's influence that his work continues to be a cornerstone of contemporary ethical debates, centuries after his death."
+      },
+      {
+        "id": 9,
+        "text": "Were it not for the serendipitous discovery of a forgotten manuscript, our understanding of this ancient civilization would be significantly impoverished."
+      },
+      {
+        "id": 10,
+        "text": "The new policy, the implications of which have yet to be fully comprehended, has been met with a mixture of cautious optimism and profound skepticism."
+      },
+      {
+        "id": 11,
+        "text": "The committee insisted that the investigation be conducted by an independent third party and that its findings be made public immediately."
+      },
+      {
+        "id": 12,
+        "text": "To address only the superficial symptoms of this societal issue without tackling its root causes is to do little more than put a Band-Aid on a gaping wound."
+      },
+      {
+        "id": 13,
+        "text": "The legislation, seeking to ameliorate the housing crisis, inadvertently created a plethora of bureaucratic hurdles for first-time buyers."
+      },
+      {
+        "id": 14,
+        "text": "If he were a more prescient leader, he would have recognized the shifting geopolitical landscape and pivoted the country's foreign policy accordingly."
+      },
+      {
+        "id": 15,
+        "text": "In light of the recent intellectual property theft, the CEO had the company's entire digital infrastructure audited by a team of external experts."
+      },
+      {
+        "id": 16,
+        "text": "Under no circumstances should the preliminary, unverified data be disseminated to the press or any other external body."
+      },
+      {
+        "id": 17,
+        "text": "The protagonist, a quintessential anti-hero, grapples with existential questions for which there are no easy, clear-cut answers."
+      },
+      {
+        "id": 18,
+        "text": "It was the stark juxtaposition of the opulent palace with the squalid slums surrounding it that served as the catalyst for the revolution."
+      },
+      {
+        "id": 19,
+        "text": "By the time the new regulations are officially implemented, it is anticipated that most corporations will already have adjusted their internal policies."
+      },
+      {
+        "id": 20,
+        "text": "He tried to play devil's advocate, but his counterarguments were so convoluted and esoteric that they failed to gain any traction with the committee."
+      },
+      {
+        "id": 21,
+        "text": "Had the city invested in its public transport infrastructure decades ago, it wouldn't be facing the gridlock and pollution problems it does now."
+      },
+      {
+        "id": 22,
+        "text": "The treaty demands that all signatories reduce their carbon emissions by a specified percentage and that they submit to periodic, independent inspections."
+      },
+      {
+        "id": 23,
+        "text": "Exhausted by the protracted and often acrimonious negotiations, the diplomat was nonetheless relieved that a semblance of an agreement had been reached."
+      },
+      {
+        "id": 24,
+        "text": "The ephemeral nature of his fame served as a cautionary tale for aspiring artists who sought lasting recognition over fleeting celebrity."
+      },
+      {
+        "id": 25,
+        "text": "Not only does the novel provide a searing critique of contemporary society, but it also does so with a wit and linguistic verve rarely seen in modern literature."
+      },
+      {
+        "id": 26,
+        "text": "To launch a new product line during such an economic downturn would be, to put it mildly, putting the cart before the horse."
+      },
+      {
+        "id": 27,
+        "text": "The symphony, long believed to have been an early, immature work, is now being re-evaluated as a groundbreaking piece of proto-romanticism."
+      },
+      {
+        "id": 28,
+        "text": "What the team lacked in experience, they more than made up for with their indefatigable spirit and a collaborative approach to problem-solving."
+      },
+      {
+        "id": 29,
+        "text": "If she were less dogmatic in her views, she would have realized that her opponent's proposal actually had considerable merit."
+      },
+      {
+        "id": 30,
+        "text": "The small nation had little choice but to acquiesce to the demands of its more powerful neighbor, inasmuch as armed conflict was an unthinkable alternative."
+      },
+      {
+        "id": 31,
+        "text": "Little did the unassuming librarian know that the dusty tome she had discovered contained clandestine information capable of toppling governments."
+      },
+      {
+        "id": 32,
+        "text": "I often wish I had pursued a career in astrophysics, though I am perfectly content with the path my life has ultimately taken."
+      },
+      {
+        "id": 33,
+        "text": "Faced with incontrovertible evidence of his malfeasance, the CEO tendered his resignation, effective immediately."
+      },
+      {
+        "id": 34,
+        "text": "While the initial polling data seems overwhelmingly positive, we shouldn't count our chickens before they're hatched; the election is still months away."
+      },
+      {
+        "id": 35,
+        "text": "Had I been aware of the composer's penchant for dissonance, I might have had my expectations better calibrated before attending the concert."
+      },
+      {
+        "id": 36,
+        "text": "The perennial conundrum for policymakers is how to stimulate economic growth without exacerbating wealth inequality."
+      },
+      {
+        "id": 37,
+        "text": "Only after the final witness had given their testimony did the full, shocking scope of the conspiracy become apparent to the jury."
+      },
+      {
+        "id": 38,
+        "text": "It should have been made abundantly clear from the outset that the merger would necessitate a significant, and likely painful, corporate restructuring."
+      },
+      {
+        "id": 39,
+        "text": "It is precisely by embracing ambiguity and resisting the urge for premature conclusions that genuine scientific breakthroughs are made."
+      },
+      {
+        "id": 40,
+        "text": "All things considered, and despite the innumerable obstacles thrown in our path, the expedition could be deemed nothing less than a resounding success."
+      }
+    ]
+  }
+}
