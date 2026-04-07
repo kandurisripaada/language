@@ -33,7 +33,8 @@
     top: 90px;
     left: 50%;
     transform: translateX(-50%) scale(0.95);
-    z-index: 2000;
+    /* Keep above page content, but below modals/dropdowns */
+    z-index: 900;
     display: flex;
     align-items: center;
     gap: 15px;

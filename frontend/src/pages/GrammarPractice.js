@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
-import { FiArrowLeft, FiAward, FiSettings, FiCheck, FiCpu } from 'react-icons/fi';
+import { FiArrowLeft, FiAward, FiSettings, FiCheck, FiCpu, FiBookOpen } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import PracticeSession from '../components/PracticeSession';
@@ -65,6 +65,63 @@ const DiffView = ({ target, spoken }) => {
   );
 };
 
+const COMMON_WORDS = new Set([
+  'a', 'an', 'and', 'are', 'as', 'at', 'be', 'been', 'being', 'but', 'by', 'for', 'from',
+  'had', 'has', 'have', 'he', 'her', 'hers', 'him', 'his', 'i', 'if', 'in', 'into', 'is',
+  'it', 'its', 'me', 'my', 'of', 'on', 'or', 'our', 'ours', 'she', 'so', 'that', 'the',
+  'them', 'they', 'this', 'to', 'was', 'we', 'were', 'with', 'you', 'your', 'yours',
+  'about', 'after', 'again', 'against', 'almost', 'also', 'always', 'among', 'another',
+  'around', 'because', 'before', 'between', 'could', 'every', 'first', 'found', 'from',
+  'great', 'group', 'happy', 'house', 'important', 'large', 'learn', 'little', 'might',
+  'never', 'other', 'people', 'place', 'point', 'right', 'should', 'small', 'something',
+  'still', 'their', 'there', 'these', 'thing', 'think', 'those', 'through', 'today', 'very',
+  'under', 'using', 'while', 'where', 'which', 'would', 'write', 'years'
+]);
+
+const EXCLUDED_COMPLEX_WORDS = new Set([
+  'philosopher', 'philosophers', 'psychologist', 'psychologists'
+]);
+
+const COMPLEX_SUFFIXES = [
+  'tion', 'sion', 'ment', 'ness', 'ity', 'ship', 'ence', 'ance', 'ology',
+  'ative', 'itive', 'ally', 'ically', 'ously', 'ively', 'ential', 'acious'
+];
+
+const isComplexWord = (word) => {
+  if (!word || COMMON_WORDS.has(word)) return false;
+  if (EXCLUDED_COMPLEX_WORDS.has(word)) return false;
+  if (!/^[a-z-]+$/.test(word)) return false;
+  if (word.length >= 7) return true; // include practical words like "grapple"
+  if (word.includes('-') && word.length >= 8) return true;
+  return COMPLEX_SUFFIXES.some(suffix => word.endsWith(suffix)) && word.length >= 7;
+};
+
+const extractHardWords = (text) => {
+  if (!text || typeof text !== 'string') return [];
+  const words = text
+    .toLowerCase()
+    .replace(/[^a-z\s-]/g, ' ')
+    .split(/\s+/)
+    .map(w => w.trim())
+    .filter(Boolean);
+
+  return words.filter(word => {
+    return isComplexWord(word);
+  });
+};
+
+const safeReadJson = async (response) => {
+  const raw = await response.text();
+  try {
+    return JSON.parse(raw);
+  } catch (error) {
+    if (raw.trim().startsWith('<')) {
+      throw new Error('API returned HTML instead of JSON. Please restart backend and verify API URL.');
+    }
+    throw new Error('Invalid API response.');
+  }
+};
+
 const GrammarPractice = () => {
   // Game State: 'setup' | 'active' | 'summary'
   const [gameState, setGameState] = useState('setup');
@@ -89,9 +146,37 @@ const GrammarPractice = () => {
   const [currentResult, setCurrentResult] = useState(null); // Result for CURRENT question
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [sessionKey, setSessionKey] = useState(0);
+  const [savedVocabularyWords, setSavedVocabularyWords] = useState([]);
+  const [selectedWords, setSelectedWords] = useState([]);
+  const [isSavingWords, setIsSavingWords] = useState(false);
 
   // Computed voice object based on config
   const [selectedVoice, setSelectedVoice] = useState(null);
+
+  useEffect(() => {
+    const loadSavedWords = async () => {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        setSavedVocabularyWords([]);
+        return;
+      }
+
+      try {
+        const response = await fetch(`${API_BASE_URL}/api/vocabulary`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        if (!response.ok) return;
+        const data = await safeReadJson(response);
+        if (Array.isArray(data)) {
+          setSavedVocabularyWords(data.map(item => (item.word || '').toLowerCase()).filter(Boolean));
+        }
+      } catch (error) {
+        console.error('Failed to load vocabulary words:', error);
+      }
+    };
+
+    loadSavedWords();
+  }, []);
 
   // Load Voice based on Config
   useEffect(() => {
@@ -199,7 +284,8 @@ const GrammarPractice = () => {
                         ...answer, 
                         type: 'grammar',
                         wordCount,
-                        wpm
+                        wpm,
+                        saveToDB: false
                     }),
                 });
                 const result = await response.json();
@@ -220,12 +306,32 @@ const GrammarPractice = () => {
         const history = JSON.parse(localStorage.getItem('practiceHistory') || '[]');
         history.unshift({
             id: Date.now(),
-            type: 'Grammar Session',
+            type: 'Grammar Practice',
             topic: `${config.level} - ${config.questionCount} Qs`,
             score: avgScore,
             date: new Date().toISOString()
         });
         localStorage.setItem('practiceHistory', JSON.stringify(history));
+
+        // Save complete bulk session to MongoDB
+        try {
+            await fetch(`${API_BASE_URL}/api/practice/save-session`, {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                },
+                body: JSON.stringify({ 
+                    type: 'grammar',
+                    topic: `${config.level.toUpperCase()} - ${config.questionCount} Questions`,
+                    score: avgScore,
+                    duration: allRawAnswers.reduce((acc, curr) => acc + (curr.duration || 0), 0),
+                    details: analyzedResults
+                })
+            });
+        } catch (e) {
+            console.error("Failed to save bulk session to DB:", e);
+        }
 
         setGameState('summary');
 
@@ -493,6 +599,76 @@ const GrammarPractice = () => {
   // Summary View
   if (gameState === 'summary') {
       const avgScore = Math.round(sessionData.results.reduce((acc, curr) => acc + (curr.overallScore || 0), 0) / sessionData.results.length);
+      const words = [];
+      sessionData.results.forEach(result => {
+        words.push(...extractHardWords(result.question?.text || ''));
+        if (Array.isArray(result.grammarErrors)) {
+          result.grammarErrors.forEach(err => {
+            words.push(...extractHardWords(err.corrected || ''));
+            words.push(...extractHardWords(err.original || ''));
+          });
+        }
+      });
+
+      const seenWords = new Set();
+      const suggestedHardWords = words.filter(word => {
+        if (seenWords.has(word)) return false;
+        if (savedVocabularyWords.includes(word)) return false;
+        seenWords.add(word);
+        return true;
+      }).slice(0, 24);
+
+      const toggleWordSelection = (word) => {
+        setSelectedWords(prev =>
+          prev.includes(word)
+            ? prev.filter(item => item !== word)
+            : [...prev, word]
+        );
+      };
+
+      const saveSelectedWords = async () => {
+        if (selectedWords.length === 0) {
+          toast.error('Please choose at least one word.');
+          return;
+        }
+
+        const token = localStorage.getItem('token');
+        if (!token) {
+          toast.error('Please login to save words to dashboard.');
+          return;
+        }
+
+        setIsSavingWords(true);
+        try {
+          const response = await fetch(`${API_BASE_URL}/api/vocabulary/save-from-grammar`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify({ words: selectedWords })
+          });
+
+          const data = await safeReadJson(response);
+          if (!response.ok) {
+            throw new Error(data.error || 'Failed to save selected words.');
+          }
+
+          const addedWords = Array.isArray(data.words) ? data.words.map(item => item.word) : [];
+          // Deduplicate by lowercase word so UI never shows duplicates.
+          setSavedVocabularyWords(prev => {
+            const merged = [...prev, ...addedWords].map(w => (w || '').toLowerCase()).filter(Boolean);
+            return Array.from(new Set(merged));
+          });
+          setSelectedWords([]);
+          toast.success(`Saved ${data.addedCount || 0} words to your dashboard.`);
+        } catch (error) {
+          console.error('Failed to save words:', error);
+          toast.error(error.message || 'Failed to save words.');
+        } finally {
+          setIsSavingWords(false);
+        }
+      };
       
       return (
          <div className="grammar-page-wrapper" style={{ paddingTop: '40px', paddingBottom: '60px' }}>
@@ -581,6 +757,55 @@ const GrammarPractice = () => {
                             )}
                         </div>
                     ))}
+                </div>
+
+                <div className="setup-card" style={{ marginTop: '40px' }}>
+                    <h2 style={{ marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                        <FiBookOpen /> Save Hard/New Words
+                    </h2>
+                    <p style={{ color: 'var(--grammar-text-secondary)', marginBottom: '18px' }}>
+                        Choose different difficult words from this session and save them to Dashboard vocabulary.
+                    </p>
+
+                    {suggestedHardWords.length > 0 ? (
+                        <>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '18px' }}>
+                                {suggestedHardWords.map(word => (
+                                    <button
+                                        key={word}
+                                        onClick={() => toggleWordSelection(word)}
+                                        style={{
+                                            borderRadius: '999px',
+                                            padding: '8px 14px',
+                                            border: selectedWords.includes(word)
+                                                ? '1px solid var(--grammar-accent)'
+                                                : '1px solid var(--grammar-border)',
+                                            background: selectedWords.includes(word)
+                                                ? 'rgba(59,130,246,0.16)'
+                                                : 'transparent',
+                                            color: 'var(--grammar-text-primary)',
+                                            cursor: 'pointer'
+                                        }}
+                                    >
+                                        {word}
+                                    </button>
+                                ))}
+                            </div>
+
+                            <button
+                                className="start-session-btn"
+                                style={{ width: 'auto', margin: 0, opacity: isSavingWords ? 0.7 : 1 }}
+                                onClick={saveSelectedWords}
+                                disabled={isSavingWords}
+                            >
+                                {isSavingWords ? 'Saving...' : 'Save Selected Words'}
+                            </button>
+                        </>
+                    ) : (
+                        <p style={{ color: 'var(--grammar-text-secondary)', margin: 0 }}>
+                            No new difficult words found in this session.
+                        </p>
+                    )}
                 </div>
             </div>
          </div>

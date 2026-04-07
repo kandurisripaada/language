@@ -17,6 +17,7 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken'); // Added for manual token verification
 const authRoutes = require('./routes/auth');
 const PracticeSession = require('./models/PracticeSession'); // Added Persistence Model
+const VocabularyWord = require('./models/VocabularyWord');
 
 // Connect to MongoDB
 const connectDB = async () => {
@@ -148,6 +149,63 @@ const callGroq = async (prompt, systemPrompt = "You are a helpful assistant.") =
         console.error(`   Message: ${error.message}`);
         throw error;
     }
+};
+
+const parseJsonObject = (text) => {
+    let jsonStr = text.replace(/```json/g, '').replace(/```/g, '').trim();
+    const startIndex = jsonStr.indexOf('{');
+    const endIndex = jsonStr.lastIndexOf('}');
+    if (startIndex !== -1 && endIndex !== -1) {
+        jsonStr = jsonStr.substring(startIndex, endIndex + 1);
+    }
+
+    try {
+        return JSON.parse(jsonStr);
+    } catch (parseError) {
+        const sanitizedStr = jsonStr.replace(/[\n\r\t]/g, ' ');
+        return JSON.parse(sanitizedStr);
+    }
+};
+
+const getUserIdFromAuthHeader = (req) => {
+    const token = req.headers.authorization?.split(' ')[1];
+    if (!token) return null;
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    return decoded.id;
+};
+
+const generateWordMeaningAndExamples = async (word) => {
+    const prompt = `
+You are an English vocabulary coach.
+For the word "${word}", return ONLY valid JSON with this exact shape:
+{
+  "meaning": "short learner-friendly meaning",
+  "examples": [
+    "example sentence 1",
+    "example sentence 2"
+  ]
+}
+Rules:
+- Keep examples practical and natural.
+- Exactly 2 examples.
+- No markdown, no extra keys.
+`;
+
+    const raw = await callGroq(prompt, "You are an English vocabulary coach. Always return valid minified JSON only.");
+    const parsed = parseJsonObject(raw);
+    const fallbackMeaning = `Meaning for "${word}"`;
+    const meaning = typeof parsed.meaning === 'string' && parsed.meaning.trim()
+        ? parsed.meaning.trim()
+        : fallbackMeaning;
+    const examples = Array.isArray(parsed.examples)
+        ? parsed.examples.filter(e => typeof e === 'string' && e.trim()).slice(0, 2)
+        : [];
+
+    while (examples.length < 2) {
+        examples.push(`I learned how to use "${word}" in a sentence.`);
+    }
+
+    return { meaning, examples };
 };
 
 // In-memory caches
@@ -575,39 +633,50 @@ app.post('/api/interview/chat', async (req, res) => {
 
         const context = interviewContextMap[interviewType] || interviewContextMap['hr'];
         
-        // Construct the enhanced prompt
+        const historyArray = Array.isArray(history) ? history : [];
+        const recentHistory = historyArray.slice(-10);
+
+        // Construct a robust, natural interviewer prompt.
         let prompt = `
-You are a seasoned Indian Senior Technical Lead or HR Manager with 15+ years of experience at a top-tier MNC or a high-growth startup. You are conducting a professional job interview. Your tone is refined, empathetic, and human-like, yet strictly professional.
+You are a real human interviewer with 15+ years of hiring experience in Indian and global companies.
+You are professional, calm, specific, and naturally conversational.
 
 INTERVIEW TYPE & CONTEXT:
 ${context}
 
-YOUR PERSONA & STYLE:
-1. PROFESSIONALISM: You are highly competent and expect quality, but you are also supportive. You represent the best of Indian professional work culture.
-2. HUMAN-LIKE OPENING: DO NOT start with a long, scripted "pleasure to meet you" paragraph. Instead, start like a real person. 
-   - FIRST MESSAGE: A warm greeting and a quick technical check (e.g., "Hi, Good morning! Am I clearly audible to you?"). 
-   - SECOND MESSAGE (after candidate confirms): Brief pleasantry, then move into the interview context.
-   - Avoid "Before we begin..." cliches. Jump into a natural dialogue.
-3. HUMAN-LIKE FLOW: Use conversational fillers and acknowledgments such as "Right," "I see," "That makes sense," or "That's an interesting observation."
-4. NATURAL TRANSITIONS: If the candidate gives a good answer, acknowledge it briefly ("Glad to hear that," "Great point") before moving to the next question.
-5. REGIONAL NUANCE: Use professional Indian English nuances. If appropriate, reference industry standards or project scales common in the Indian ecosystem.
-6. DYNAMIC DRILL-DOWN: Don't just follow a checklist. If a candidate mentions something interesting, ask a follow-up question about it ("You mentioned X, how did that impact the overall project?") before moving to your next main topic.
+OBJECTIVE:
+Run a realistic interview that feels human, while still evaluating the candidate rigorously.
 
-DUAL CAPABILITIES:
-1. INTERVIEW MODE: Ask relevant, insightful questions based on the interview type.
-2. CLARIFICATION MODE: Answer the candidate's questions, provide explanations, and offer guidance if they are stuck.
+STRICT BEHAVIOR RULES:
+1. One turn = one main question (unless the candidate asked you something first).
+2. Keep most replies between 20 and 55 words.
+3. Avoid robotic templates and repeated praise. Do NOT keep saying "Great answer" in every turn.
+4. Always anchor follow-ups to candidate details: tools, metrics, decisions, constraints, ownership, timeline.
+5. If answer is vague, ask for specifics immediately (impact, numbers, trade-offs, what they personally did).
+6. If answer is strong, do one sharp drill-down question before moving to a new topic.
+7. Ask practical, real interview questions. Prefer "how/why/what changed" over generic theory prompts.
+8. If candidate asks for clarification/help, answer briefly first, then continue interview naturally.
+9. No markdown, no bullets, no labels, no role prefixes. Spoken plain text only.
+10. Do not produce long speeches; keep it interactive and dynamic.
 
-CONVERSATION RULES:
-1. Keep responses concise (2-4 sentences max) for natural pacing.
-2. No markdown or special formatting - plain text ONLY for speech synthesis.
-3. If candidate asks a question, ALWAYS answer it first before continuing.
-4. Build on the previous conversation naturally to avoid a "robotic" feel.
+NATURAL HUMAN STYLE:
+- Use light acknowledgements occasionally ("I see", "Understood", "Got it"), not in every turn.
+- Vary question phrasing and rhythm.
+- Sound like a thoughtful interviewer, not a coaching bot.
+- Keep pressure realistic but respectful.
 
-CONVERSATION HISTORY:
+OPENING LOGIC:
+- On interview start: brief greeting + one comfortable opening question.
+- Do not ask multiple questions in first turn.
+
+EVALUATION FOCUS (INTERNALLY):
+Assess clarity, ownership, problem solving, communication, and depth.
+
+RECENT CONVERSATION (most recent last):
 `;
 
-        // Append history to prompt
-        (history || []).forEach(msg => {
+        // Append only recent history to reduce repetitive, stale patterns.
+        recentHistory.forEach(msg => {
             prompt += `${msg.role === 'ai' ? 'Interviewer' : 'Candidate'}: ${msg.text}\n`;
         });
 
@@ -638,10 +707,19 @@ DO NOT say "Candidate:" or "Interviewer:" in your output.
         }
         */
 
-        let responseText = await callGroq(prompt, "You are an expert, friendly, and highly intelligent AI Job Interviewer conducting a professional interview.");
+        let responseText = await callGroq(
+            prompt,
+            "You are a realistic human interviewer. Be concise, contextual, and natural in spoken interview dialogue."
+        );
         
         // Clean up response
-        const cleanResponse = responseText.replace(/Interviewer:/gi, '').trim();
+        const cleanResponse = responseText
+            .replace(/Interviewer:/gi, '')
+            .replace(/\*\*(.*?)\*\*/g, '$1')
+            .replace(/```[\s\S]*?```/g, '')
+            .replace(/^[\-\*\d\)\.\s]+/gm, '')
+            .replace(/\n{3,}/g, '\n\n')
+            .trim();
 
         res.json({ 
             text: cleanResponse,
@@ -810,7 +888,8 @@ app.post('/api/practice/submit', async (req, res) => {
     
             const prompt = `
             You are an expert English language coach analyzing a spoken practice session. Provide comprehensive feedback in a single response.
-            TRANSCRIPT: "${transcript}"
+            ${type === 'grammar' ? `TARGET SENTENCE TO READ: "${(req.body.question?.text || '').toLowerCase().replace(/[^a-z0-9\s]/g, '')}"\nCRITICAL INSTRUCTION: Since this is a Grammar reading exercise, closely compare the TRANSCRIPT to the TARGET SENTENCE. Any missed words, incorrect tenses, or grammatically misread words MUST be explicitly listed in the "grammarErrors" array. DO NOT flag capitalization or punctuation differences as errors, since the transcript is generated from raw speech.` : ((req.body.question?.text || req.body.topic) ? `TOPIC/QUESTION ASKED: "${req.body.question?.text || req.body.topic}"` : '')}
+            TRANSCRIPT: "${type === 'grammar' ? transcript.toLowerCase().replace(/[^a-z0-9\s]/g, '') : transcript}"
             AUDIO METRICS:
             - Duration: ${duration} seconds
             - Total words: ${wordCount || 'N/A'}
@@ -822,6 +901,8 @@ app.post('/api/practice/submit', async (req, res) => {
               "grammarErrors": [{ "original": "...", "corrected": "...", "rule": "...", "severity": "..." }],
               "pronunciationTips": ["...", "..."],
               "fluencyScore": 0-100,
+              "answerRelevance": 0-100,
+              "topicFeedback": "Brief feedback on how well they answered the topic/question",
               "fluencyBreakdown": { "grammar": 0-100, "vocabulary": 0-100, "coherence": 0-100, "speed": 0-100, "fillerWordImpact": 0-100 },
               "vocabularyLevel": "beginner/intermediate/advanced",
               "strengths": ["..."],
@@ -880,6 +961,8 @@ app.post('/api/practice/submit', async (req, res) => {
                 fluency: analysis.fluencyBreakdown.speed,
                 coherence: analysis.fluencyBreakdown.coherence,
                 vocabulary: analysis.fluencyBreakdown.vocabulary,
+                answerRelevance: analysis.answerRelevance !== undefined ? analysis.answerRelevance : null,
+                topicFeedback: analysis.topicFeedback || null,
                 message: analysis.overallFeedback,
                 createdAt: new Date(),
                 ...(grammarMetrics && { grammarMetrics })
@@ -900,8 +983,8 @@ app.post('/api/practice/submit', async (req, res) => {
              return res.status(400).json({ error: 'Invalid practice type' });
         }
 
-        // 2. Save to MongoDB if User is Authenticated
-        if (userId) {
+        // 2. Save to MongoDB if User is Authenticated and saveToDB is not explicitly false
+        if (userId && req.body.saveToDB !== false) {
             try {
                 const session = new PracticeSession({
                     user: userId,
@@ -928,6 +1011,43 @@ app.post('/api/practice/submit', async (req, res) => {
         console.error('Error generating feedback:', error);
         res.status(500).json({ error: 'Failed to generate feedback' });
     }
+});
+
+// Save complete session explicitly
+app.post('/api/practice/save-session', async (req, res) => {
+    const { type, topic, score, duration, details } = req.body;
+    
+    let userId = null;
+    try {
+        const token = req.headers.authorization?.split(' ')[1];
+        if (token) {
+            const decoded = jwt.verify(token, process.env.JWT_SECRET);
+            userId = decoded.id;
+        }
+    } catch (err) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+
+    if (userId) {
+        try {
+            const session = new PracticeSession({
+                user: userId,
+                type,
+                topic,
+                score,
+                duration: duration || 0,
+                details
+            });
+            await session.save();
+            console.log(`✅ Bulk Practice Session (${type}) saved for user ${userId}`);
+            return res.json({ success: true, id: session._id });
+        } catch (dbError) {
+            console.error("❌ Failed to save bulk session to DB:", dbError.message);
+            return res.status(500).json({ error: 'Failed to save to database' });
+        }
+    }
+    
+    res.json({ success: true, message: 'Guest session complete' });
 });
 
 // Listening Practice Generation Endpoint
@@ -1037,8 +1157,11 @@ app.get('/api/practice/history', async (req, res) => {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         const userId = decoded.id;
 
-        // 2. Fetch Sessions
-        const sessions = await PracticeSession.find({ user: userId })
+        // 2. Fetch Sessions (exclude old bot-mode entries if they were saved as interview)
+        const sessions = await PracticeSession.find({
+            user: userId,
+            topic: { $not: /Bot Mode/i }
+        })
             .sort({ createdAt: -1 })
             .limit(50); // Limit to last 50 sessions
 
@@ -1047,7 +1170,7 @@ app.get('/api/practice/history', async (req, res) => {
             id: session._id,
             type: session.type === 'topic' ? 'Topic Practice' : 
                   session.type === 'grammar' ? 'Grammar Practice' :
-                  session.type === 'interview' ? 'Interview Practice' :
+                  session.type === 'interview' ? 'AI Interviewer' :
                   session.type === 'listening' ? 'Listening Practice' :
                   'AI Interviewer',
             topic: session.topic,
@@ -1060,6 +1183,92 @@ app.get('/api/practice/history', async (req, res) => {
     } catch (error) {
         console.error('Error fetching history:', error);
         res.status(500).json({ error: 'Failed to fetch history' });
+    }
+});
+
+app.get('/api/vocabulary', async (req, res) => {
+    try {
+        const userId = getUserIdFromAuthHeader(req);
+        if (!userId) {
+            return res.status(401).json({ error: 'Unauthorized' });
+        }
+
+        const words = await VocabularyWord.find({ user: userId })
+            .sort({ createdAt: -1 })
+            .limit(200);
+
+        res.json(words.map(item => ({
+            id: item._id,
+            word: item.word,
+            meaning: item.meaning,
+            examples: Array.isArray(item.examples) ? item.examples.slice(0, 2) : [],
+            source: item.source,
+            date: item.createdAt
+        })));
+    } catch (error) {
+        console.error('Error fetching vocabulary:', error);
+        res.status(500).json({ error: 'Failed to fetch vocabulary' });
+    }
+});
+
+app.post('/api/vocabulary/save-from-grammar', async (req, res) => {
+    try {
+        const userId = getUserIdFromAuthHeader(req);
+        if (!userId) {
+            return res.status(401).json({ error: 'Unauthorized' });
+        }
+
+        const inputWords = Array.isArray(req.body.words) ? req.body.words : [];
+        const cleanedWords = [...new Set(
+            inputWords
+                .map(w => (typeof w === 'string' ? w.trim().toLowerCase() : ''))
+                .filter(Boolean)
+        )].slice(0, 20);
+
+        if (cleanedWords.length === 0) {
+            return res.status(400).json({ error: 'No words provided' });
+        }
+
+        const existing = await VocabularyWord.find({
+            user: userId,
+            word: { $in: cleanedWords }
+        }).select('word');
+        const existingSet = new Set(existing.map(item => item.word));
+        const wordsToCreate = cleanedWords.filter(word => !existingSet.has(word));
+
+        const created = [];
+        for (const word of wordsToCreate) {
+            try {
+                const details = await generateWordMeaningAndExamples(word);
+                const doc = await VocabularyWord.create({
+                    user: userId,
+                    word,
+                    meaning: details.meaning,
+                    examples: details.examples,
+                    source: 'grammar'
+                });
+                created.push(doc);
+            } catch (err) {
+                console.error(`Failed to create vocabulary word "${word}":`, err.message);
+            }
+        }
+
+        res.json({
+            success: true,
+            addedCount: created.length,
+            skippedCount: cleanedWords.length - created.length,
+            words: created.map(item => ({
+                id: item._id,
+                word: item.word,
+                meaning: item.meaning,
+                examples: item.examples.slice(0, 2),
+                source: item.source,
+                date: item.createdAt
+            }))
+        });
+    } catch (error) {
+        console.error('Error saving vocabulary:', error);
+        res.status(500).json({ error: 'Failed to save vocabulary' });
     }
 });
 

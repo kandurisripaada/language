@@ -88,6 +88,28 @@ const Home = () => {
               <Link to="/topic-practice" className="neon-button">Start Learning</Link>
               <Link to="/dashboard" className="neon-button-outline">View Dashboard</Link>
             </div>
+            
+            {(() => {
+              const streak = parseInt(localStorage.getItem('userStreak') || '0');
+              if (streak < 0) return null;
+              
+              let emoji = "🌱"; // Fresh start
+              if (streak >= 1) emoji = "💡"; // Building the habit
+              if (streak >= 3) emoji = "🔥"; // On fire
+              if (streak >= 7) emoji = "🚀"; // Going fast
+              if (streak >= 30) emoji = "👑"; // Master
+              
+              return (
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.5 }}
+                  style={{ marginTop: '25px', display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(255, 152, 0, 0.1)', border: '1px solid rgba(255, 152, 0, 0.3)', padding: '8px 16px', borderRadius: '30px', color: '#ff9800', fontWeight: 'bold' }}
+                >
+                  <FiTrendingUp /> {streak} Day Learning Streak {emoji}
+                </motion.div>
+              );
+            })()}
           </motion.div>
           
           <motion.div 

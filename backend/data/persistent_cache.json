@@ -3,30 +3,6 @@
   "grammarCache": {
     "basic": [
       {
-        "id": 1,
-        "text": "I like apples"
-      },
-      {
-        "id": 2,
-        "text": "The cat is black"
-      },
-      {
-        "id": 3,
-        "text": "She eats breakfast at 7"
-      },
-      {
-        "id": 4,
-        "text": "He has a big house"
-      },
-      {
-        "id": 5,
-        "text": "I am happy today"
-      },
-      {
-        "id": 6,
-        "text": "The dog is very small"
-      },
-      {
         "id": 7,
         "text": "They are my friends"
       },
@@ -165,134 +141,6 @@
     ],
     "intermediate": [
       {
-        "id": 3,
-        "text": "If I had more free time, I would travel to exotic countries and try different types of cuisine."
-      },
-      {
-        "id": 4,
-        "text": "By the time I arrived at the party, most of the guests had already left and the music was turned off."
-      },
-      {
-        "id": 5,
-        "text": "The company will have to reduce its production costs if it wants to remain competitive in the global market."
-      },
-      {
-        "id": 6,
-        "text": "Although I was tired, I stayed up late to finish my project and meet the deadline."
-      },
-      {
-        "id": 7,
-        "text": "The teacher asked the students to work in pairs and discuss the advantages and disadvantages of social media."
-      },
-      {
-        "id": 8,
-        "text": "Unless we take immediate action to protect the environment, future generations will face severe consequences."
-      },
-      {
-        "id": 9,
-        "text": "During my summer vacation, I visited several historical sites and learned a lot about the local culture."
-      },
-      {
-        "id": 10,
-        "text": "The new policy has been implemented to improve the quality of life for people living in urban areas."
-      },
-      {
-        "id": 11,
-        "text": "As soon as I got home, I started preparing dinner and watched a movie with my family."
-      },
-      {
-        "id": 12,
-        "text": "Most people believe that education is the key to a successful and fulfilling life."
-      },
-      {
-        "id": 13,
-        "text": "If it hadn't rained, we would have gone to the beach and enjoyed the sunshine."
-      },
-      {
-        "id": 14,
-        "text": "The manager of the store apologized for the mistake and offered a discount on our next purchase."
-      },
-      {
-        "id": 15,
-        "text": "By next year, I will have been studying English for five years and will be ready to take a proficiency exam."
-      },
-      {
-        "id": 16,
-        "text": "The tourists got lost in the city because they didn't have a map and couldn't speak the language."
-      },
-      {
-        "id": 17,
-        "text": "The new smartphone is equipped with advanced technology and has a long-lasting battery."
-      },
-      {
-        "id": 18,
-        "text": "While I was waiting for the bus, I read a book and listened to music on my phone."
-      },
-      {
-        "id": 19,
-        "text": "The government has introduced a new law to regulate the use of social media and protect users' privacy."
-      },
-      {
-        "id": 20,
-        "text": "The students were asked to write a short essay on the importance of recycling and conservation."
-      },
-      {
-        "id": 21,
-        "text": "If I won the lottery, I would buy a house and travel around the world."
-      },
-      {
-        "id": 22,
-        "text": "The company's profits have increased significantly since the new marketing strategy was implemented."
-      },
-      {
-        "id": 23,
-        "text": "The teacher encouraged the students to ask questions and participate in class discussions."
-      },
-      {
-        "id": 24,
-        "text": "The city is planning to build a new park and improve the public transportation system."
-      },
-      {
-        "id": 25,
-        "text": "Although I don't like sports, I enjoy watching football matches with my friends."
-      },
-      {
-        "id": 26,
-        "text": "The new restaurant in town serves delicious food and has a cozy atmosphere."
-      },
-      {
-        "id": 27,
-        "text": "The students had to work in groups and present their projects to the class."
-      },
-      {
-        "id": 28,
-        "text": "The weather forecast said it would rain, but the sun was shining all day."
-      },
-      {
-        "id": 29,
-        "text": "The hotel room was clean and comfortable, and the staff were friendly and helpful."
-      },
-      {
-        "id": 30,
-        "text": "If I had the opportunity, I would love to learn a new language and explore different cultures."
-      },
-      {
-        "id": 31,
-        "text": "The company is looking for skilled employees who are fluent in English and have experience in marketing."
-      },
-      {
-        "id": 32,
-        "text": "The city is hosting a festival to celebrate its history and cultural heritage."
-      },
-      {
-        "id": 33,
-        "text": "The teacher asked the students to write a diary entry about their summer vacation."
-      },
-      {
-        "id": 34,
-        "text": "The new policy aims to reduce carbon emissions and promote sustainable energy sources."
-      },
-      {
         "id": 35,
         "text": "Although I was nervous, I gave a good presentation and received positive feedback from my colleagues."
       },
@@ -315,69 +163,169 @@
       {
         "id": 40,
         "text": "The teacher encouraged the students to think critically and develop their problem-solving skills."
-      }
-    ],
-    "advanced": [
+      },
       {
         "id": 1,
-        "text": "While contemplating the implications of advanced technology on modern society, many researchers have begun to question the true cost of innovation."
+        "text": "The new employee was very nervous on his first day at the office."
       },
       {
         "id": 2,
-        "text": "The fact that the new policy has been met with widespread criticism has not deterred the government from implementing it nationwide."
+        "text": "If I won the lottery, I would buy a house by the sea."
       },
       {
         "id": 3,
-        "text": "Having spent several years studying the effects of climate change, the scientist was well-equipped to advise the government on potential solutions."
+        "text": "By the time I arrived, they had already eaten dinner."
       },
       {
         "id": 4,
-        "text": "The complexities of human emotions, which have puzzled philosophers and psychologists for centuries, continue to be a subject of intense debate and inquiry."
+        "text": "The students were so excited for their school trip to Paris."
       },
       {
         "id": 5,
-        "text": "As the world grapples with the challenges of sustainable development, it has become increasingly evident that a radical shift in our consumption patterns is necessary."
+        "text": "The weather forecast said it would rain, so I took an umbrella."
       },
       {
         "id": 6,
-        "text": "Despite the numerous benefits associated with regular exercise, many people struggle to incorporate physical activity into their busy schedules."
+        "text": "The company will have to reduce costs in order to stay competitive."
       },
       {
         "id": 7,
-        "text": "The novel, which explores the intricacies of human relationships and the consequences of one's actions, has been hailed as a masterpiece of contemporary literature."
+        "text": "While I was studying, my little brother was watching TV in the living room."
       },
       {
         "id": 8,
-        "text": "The implementation of stringent environmental regulations has been shown to have a positive impact on the overall quality of life in urban areas."
+        "text": "She had been feeling unwell for a few days before she went to see the doctor."
       },
       {
         "id": 9,
-        "text": "In order to mitigate the effects of global warming, it is essential that we adopt a multifaceted approach that incorporates both mitigation and adaptation strategies."
+        "text": "The hotel room had a beautiful view of the city skyline."
       },
       {
         "id": 10,
-        "text": "The discovery of exoplanets, which has shed new light on the possibility of extraterrestrial life, has significant implications for the field of astrobiology."
+        "text": "The teacher asked the students to write a short essay about their summer holidays."
       },
       {
         "id": 11,
-        "text": "The relationship between social media usage and mental health, which has been the subject of extensive research, is complex and multifaceted."
+        "text": "If it hadn't been for my friend's help, I wouldn't have finished the project on time."
       },
       {
         "id": 12,
-        "text": "The fact that the company has invested heavily in renewable energy sources has not only reduced its carbon footprint but also enhanced its reputation as a socially responsible corporation."
+        "text": "The new policy has caused controversy among the local community."
       },
       {
         "id": 13,
-        "text": "The new employee, who had been struggling to adjust to the company culture, was finally able to find his footing after receiving guidance from a seasoned mentor."
+        "text": "By next year, I will have been studying English for five years."
       },
       {
         "id": 14,
-        "text": "The implications of the recent economic downturn, which have been felt across various sectors, are likely to be far-reaching and profound."
+        "text": "The tour guide explained the history of the ancient castle to the visitors."
       },
       {
         "id": 15,
-        "text": "The artist's use of vibrant colors and bold brushstrokes, which has been described as both provocative and captivating, has sparked intense debate among art critics."
+        "text": "The play was so good that we decided to watch it again the following week."
       },
+      {
+        "id": 16,
+        "text": "The manager of the restaurant was very friendly and welcoming to the customers."
+      },
+      {
+        "id": 17,
+        "text": "The artist's latest painting was sold at an auction for a record price."
+      },
+      {
+        "id": 18,
+        "text": "The students had to do a lot of research for their project on climate change."
+      },
+      {
+        "id": 19,
+        "text": "If I had known about the traffic jam, I would have taken a different route."
+      },
+      {
+        "id": 20,
+        "text": "The book was so interesting that I finished reading it in just one day."
+      },
+      {
+        "id": 21,
+        "text": "The company has decided to launch a new product line next month."
+      },
+      {
+        "id": 22,
+        "text": "The weather was perfect for a picnic in the park."
+      },
+      {
+        "id": 23,
+        "text": "While my parents were out, my brother and I watched a movie."
+      },
+      {
+        "id": 24,
+        "text": "The new employee quickly became an integral part of the team."
+      },
+      {
+        "id": 25,
+        "text": "The city's public transportation system is very efficient and convenient."
+      },
+      {
+        "id": 26,
+        "text": "The teacher gave the students a lot of homework to do over the weekend."
+      },
+      {
+        "id": 27,
+        "text": "The hotel staff were very helpful and made our stay very enjoyable."
+      },
+      {
+        "id": 28,
+        "text": "The play was written by a famous playwright and was very successful."
+      },
+      {
+        "id": 29,
+        "text": "The students were very grateful for the teacher's guidance and support."
+      },
+      {
+        "id": 30,
+        "text": "If it rains tomorrow, we will have to cancel the outdoor event."
+      },
+      {
+        "id": 31,
+        "text": "The company's profits have increased significantly over the past year."
+      },
+      {
+        "id": 32,
+        "text": "The new policy has had a positive impact on the environment."
+      },
+      {
+        "id": 33,
+        "text": "The artist's work was exhibited in a gallery in the city center."
+      },
+      {
+        "id": 34,
+        "text": "The students had to work in groups to complete the project."
+      },
+      {
+        "id": 35,
+        "text": "The hotel room was small, but it had a beautiful view of the ocean."
+      },
+      {
+        "id": 36,
+        "text": "The teacher asked the students to write a short story about their favorite character."
+      },
+      {
+        "id": 37,
+        "text": "The company has a very diverse workforce with employees from many countries."
+      },
+      {
+        "id": 38,
+        "text": "The city's traffic congestion is a major problem that needs to be solved."
+      },
+      {
+        "id": 39,
+        "text": "The weather forecast said there was a chance of thunderstorms in the evening."
+      },
+      {
+        "id": 40,
+        "text": "The students were very excited to meet the famous author who was visiting their school."
+      }
+    ],
+    "advanced": [
       {
         "id": 16,
         "text": "The importance of preserving cultural heritage sites, which are not only significant historically but also economically, cannot be overstated."
@@ -486,233 +434,209 @@
       "intermediate": [
         {
           "type": "conversation",
-          "title": "Ordering Food",
+          "title": "Discussing a Project",
           "script": [
             {
-              "speaker": "Waiter",
-              "text": "Welcome to Bistro Bliss. Can I take your order?"
+              "speaker": "Michael",
+              "text": "We need to finalize the marketing project by the end of the month, which is in 20 days."
             },
             {
               "speaker": "Sarah",
-              "text": "Yes, I'd like to have the chicken salad, please. And can I get a glass of lemonade for $3.50?"
+              "text": "I've already started working on it, and I've spent around 10 hours so far."
             },
             {
-              "speaker": "Waiter",
-              "text": "Certainly. And for you, sir?"
-            },
-            {
-              "speaker": "Mike",
-              "text": "I'll have the beef burger, please. And can you make sure it's well done?"
-            },
-            {
-              "speaker": "Waiter",
-              "text": "Absolutely. We have a special deal on fries for $2.99. Would you like to try it?"
+              "speaker": "Michael",
+              "text": "Great, and how much of the project have you completed?"
             },
             {
               "speaker": "Sarah",
-              "text": "Yes, we'll take the fries. And can we get the check at 8 pm, please?"
+              "text": "I'd say I've completed about 30% of it, and I'll meet with the design team on the 25th at 10:00 AM to discuss the remainder."
+            },
+            {
+              "speaker": "Michael",
+              "text": "That sounds good, and don't forget to include the $500 budget for advertising in your plan."
+            },
+            {
+              "speaker": "Sarah",
+              "text": "Will do, and I'll submit the final report to you by 5:00 PM on the 28th."
             }
           ],
           "questions": [
             {
               "id": 1,
-              "question": "What is the name of the restaurant?",
+              "question": "When is the project due?",
               "options": [
-                "Bistro Bliss",
-                "Bliss Bistro",
-                "The Bistro",
-                "Bistro"
+                "15th of the month",
+                "20th of the month",
+                "25th of the month",
+                "End of the month"
               ],
-              "answer": "Bistro Bliss",
-              "explanation": "The waiter mentions the name of the restaurant in his welcome message."
+              "answer": "End of the month",
+              "explanation": "Michael mentions the project needs to be finalized by the end of the month."
             },
             {
               "id": 2,
-              "question": "What drink does Sarah order?",
+              "question": "How many hours has Sarah spent on the project?",
               "options": [
-                "Iced tea",
-                "Lemonade",
-                "Coffee",
-                "Juice"
+                "5 hours",
+                "10 hours",
+                "15 hours",
+                "20 hours"
               ],
-              "answer": "Lemonade",
-              "explanation": "Sarah mentions the drink she wants to order."
+              "answer": "10 hours",
+              "explanation": "Sarah has spent around 10 hours on the project so far."
             },
             {
               "id": 3,
-              "question": "How much does the lemonade cost?",
+              "question": "What percentage of the project has Sarah completed?",
               "options": [
-                "$2.50",
-                "$3.00",
-                "$3.50",
-                "$4.00"
+                "20%",
+                "30%",
+                "40%",
+                "50%"
               ],
-              "answer": "$3.50",
-              "explanation": "Sarah mentions the price of the lemonade."
+              "answer": "30%",
+              "explanation": "Sarah has completed about 30% of the project."
             },
             {
               "id": 4,
-              "question": "What is Mike's order?",
+              "question": "When will Sarah meet with the design team?",
               "options": [
-                "Chicken salad",
-                "Beef burger",
-                "Veggie sandwich",
-                "Fish and chips"
+                "23rd at 10:00 AM",
+                "25th at 10:00 AM",
+                "25th at 2:00 PM",
+                "28th at 5:00 PM"
               ],
-              "answer": "Beef burger",
-              "explanation": "Mike mentions his order in the conversation."
+              "answer": "25th at 10:00 AM",
+              "explanation": "Sarah will meet with the design team on the 25th at 10:00 AM."
             },
             {
               "id": 5,
-              "question": "How much do the fries cost?",
+              "question": "What is the budget for advertising?",
               "options": [
-                "$2.49",
-                "$2.99",
-                "$3.49",
-                "$3.99"
+                "$300",
+                "$400",
+                "$500",
+                "$600"
               ],
-              "answer": "$2.99",
-              "explanation": "The waiter mentions the price of the fries."
+              "answer": "$500",
+              "explanation": "The budget for advertising is $500."
             },
             {
               "id": 6,
-              "question": "At what time do Sarah and Mike want the check?",
+              "question": "When will Sarah submit the final report?",
               "options": [
-                "7 pm",
-                "7:30 pm",
-                "8 pm",
-                "8:30 pm"
+                "25th at 10:00 AM",
+                "28th at 12:00 PM",
+                "28th at 5:00 PM",
+                "30th at 5:00 PM"
               ],
-              "answer": "8 pm",
-              "explanation": "Sarah mentions the time they want the check."
-            },
-            {
-              "id": 7,
-              "question": "Is Mike's beef burger cooked well done?",
-              "options": [
-                "Yes",
-                "No",
-                "Maybe",
-                "Not sure"
-              ],
-              "answer": "Yes",
-              "explanation": "Mike specifically requests his burger to be well done."
+              "answer": "28th at 5:00 PM",
+              "explanation": "Sarah will submit the final report by 5:00 PM on the 28th."
             }
           ]
         },
         {
           "type": "conversation",
-          "title": "Job Interview",
+          "title": "Making Plans for the Weekend",
           "script": [
             {
-              "speaker": "Interviewer",
-              "text": "Welcome, John. Can you tell me a little about yourself?"
+              "speaker": "David",
+              "text": "I'm thinking of going to the beach on Saturday at 8:00 AM."
             },
             {
-              "speaker": "John",
-              "text": "I have 5 years of experience in marketing and I've worked with 3 different companies, including XYZ Corporation."
+              "speaker": "Jessica",
+              "text": "That sounds like fun, and I'd love to join you, but I have a class from 9:00 AM to 12:00 PM."
             },
             {
-              "speaker": "Interviewer",
-              "text": "That's great. We're looking for someone to start on March 1st. Can you start on that date?"
+              "speaker": "David",
+              "text": "No worries, we can meet up at 1:00 PM at the beach, and then we can have lunch at that new restaurant for $18 per person."
             },
             {
-              "speaker": "John",
-              "text": "Yes, I can start on March 1st. I'm available to work 40 hours a week."
+              "speaker": "Jessica",
+              "text": "I've heard great things about it, and I'd love to try it, and maybe we can also watch the movie that starts at 4:00 PM."
             },
             {
-              "speaker": "Interviewer",
-              "text": "Excellent. The salary for this position is $60,000 per year. And you'll get 2 weeks of paid vacation."
+              "speaker": "David",
+              "text": "I've already bought the tickets for $12 each, so we're all set."
             },
             {
-              "speaker": "John",
-              "text": "That sounds good. I'm looking forward to hearing from you by the end of the week."
+              "speaker": "Jessica",
+              "text": "And after the movie, we can grab some ice cream at the shop that's open until 10:00 PM."
             }
           ],
           "questions": [
             {
               "id": 1,
-              "question": "What is John's level of experience in marketing?",
+              "question": "When is David planning to go to the beach?",
               "options": [
-                "2 years",
-                "3 years",
-                "5 years",
-                "10 years"
+                "Friday at 5:00 PM",
+                "Saturday at 8:00 AM",
+                "Saturday at 12:00 PM",
+                "Sunday at 10:00 AM"
               ],
-              "answer": "5 years",
-              "explanation": "John mentions his experience in the conversation."
+              "answer": "Saturday at 8:00 AM",
+              "explanation": "David is thinking of going to the beach on Saturday at 8:00 AM."
             },
             {
               "id": 2,
-              "question": "How many companies has John worked with?",
+              "question": "What time does Jessica's class end?",
               "options": [
-                "1",
-                "2",
-                "3",
-                "4"
+                "11:00 AM",
+                "12:00 PM",
+                "1:00 PM",
+                "2:00 PM"
               ],
-              "answer": "3",
-              "explanation": "John mentions the number of companies he has worked with."
+              "answer": "12:00 PM",
+              "explanation": "Jessica's class ends at 12:00 PM."
             },
             {
               "id": 3,
-              "question": "What is the name of one of the companies John has worked with?",
+              "question": "How much does lunch cost per person?",
               "options": [
-                "ABC Inc.",
-                "XYZ Corporation",
-                "PQR Ltd.",
-                "MNO Corp."
+                "$15",
+                "$18",
+                "$20",
+                "$25"
               ],
-              "answer": "XYZ Corporation",
-              "explanation": "John mentions the company in his introduction."
+              "answer": "$18",
+              "explanation": "Lunch at the new restaurant costs $18 per person."
             },
             {
               "id": 4,
-              "question": "When is John expected to start the new job?",
+              "question": "What time does the movie start?",
               "options": [
-                "February 20th",
-                "March 1st",
-                "March 15th",
-                "April 1st"
+                "2:00 PM",
+                "3:00 PM",
+                "4:00 PM",
+                "5:00 PM"
               ],
-              "answer": "March 1st",
-              "explanation": "The interviewer mentions the start date."
+              "answer": "4:00 PM",
+              "explanation": "The movie starts at 4:00 PM."
             },
             {
               "id": 5,
-              "question": "How many hours is John available to work per week?",
+              "question": "How much did the movie tickets cost?",
               "options": [
-                "30 hours",
-                "35 hours",
-                "40 hours",
-                "45 hours"
+                "$10",
+                "$12",
+                "$15",
+                "$18"
               ],
-              "answer": "40 hours",
-              "explanation": "John mentions his availability in the conversation."
+              "answer": "$12",
+              "explanation": "The movie tickets cost $12 each."
             },
             {
               "id": 6,
-              "question": "What is the salary for the position?",
+              "question": "When does the ice cream shop close?",
               "options": [
-                "$50,000",
-                "$55,000",
-                "$60,000",
-                "$65,000"
+                "8:00 PM",
+                "9:00 PM",
+                "10:00 PM",
+                "11:00 PM"
               ],
-              "answer": "$60,000",
-              "explanation": "The interviewer mentions the salary."
-            },
-            {
-              "id": 7,
-              "question": "How many weeks of paid vacation does John get?",
-              "options": [
-                "1 week",
-                "2 weeks",
-                "3 weeks",
-                "4 weeks"
-              ],
-              "answer": "2 weeks",
-              "explanation": "The interviewer mentions the number of weeks of paid vacation."
+              "answer": "10:00 PM",
+              "explanation": "The ice cream shop is open until 10:00 PM."
             }
           ]
         }
@@ -728,109 +652,6 @@
   "readingCache": {
     "basic": [],
     "intermediate": [
-      {
-        "type": "reading",
-        "title": "The History of the Ancient City of Petra",
-        "content": "The ancient city of Petra, located in modern-day Jordan, is one of the most fascinating and mysterious archaeological sites in the world. The city was once the capital of the Nabataean Kingdom, a powerful and prosperous empire that controlled the trade routes between the East and the West. The Nabataeans were a group of Arabs who settled in the area in the 6th century BC and established a thriving civilization. They developed a sophisticated system of agriculture, architecture, and engineering, which allowed them to build a magnificent city that was carved into the sandstone cliffs. The city of Petra was an important center of trade and commerce, and its strategic location allowed it to control the flow of goods and people between the Arabian Peninsula and the Mediterranean region. The city's inhabitants were known for their advanced knowledge of astronomy, mathematics, and medicine, and they made significant contributions to the development of these fields. The city of Petra was also an important cultural and spiritual center, and it was home to many temples, churches, and other places of worship. The most famous of these is the Treasury, a magnificent temple that was carved into the face of a mountain and is considered one of the most impressive architectural achievements of the ancient world. The Treasury was built in the 1st century BC and is believed to have been used as a temple and a royal tomb. It is decorated with intricate carvings and statues, and its façade is adorned with a magnificent portico. The city of Petra was also home to many other impressive structures, including the Monastery, the Royal Tombs, and the Amphitheater. These structures were built using advanced engineering techniques and are a testament to the ingenuity and skill of the Nabataeans. Despite its many achievements, the city of Petra began to decline in the 4th century AD, and it was eventually abandoned. The city remained hidden for many centuries, and it was only rediscovered in the 19th century by European explorers. Today, the city of Petra is a UNESCO World Heritage site and is considered one of the most important archaeological sites in the world. It attracts millions of visitors each year, and it is a source of pride and inspiration for the people of Jordan. The city's rich history and culture are a testament to the ingenuity and creativity of the human spirit, and it continues to captivate and inspire people from all over the world. Furthermore, the study of Petra has also shed light on the history of the ancient world and has provided valuable insights into the development of human civilization. The city's strategic location and its role in the ancient trade routes have made it an important subject of study for historians and archaeologists. In addition, the city's unique architecture and engineering have also made it a fascinating subject for engineers and architects. As a result, the city of Petra continues to be an important center of learning and discovery, and its legacy will continue to inspire and educate people for generations to come.",
-        "questions": [
-          {
-            "id": 1,
-            "question": "What was the city of Petra?",
-            "options": [
-              "The capital of the Roman Empire",
-              "The capital of the Nabataean Kingdom",
-              "A major city in ancient Egypt",
-              "A city in ancient Greece"
-            ],
-            "answer": "B",
-            "explanation": "The city of Petra was once the capital of the Nabataean Kingdom, a powerful and prosperous empire that controlled the trade routes between the East and the West"
-          },
-          {
-            "id": 2,
-            "question": "Who were the Nabataeans?",
-            "options": [
-              "A group of Arabs who settled in the area in the 6th century BC",
-              "A group of Europeans who settled in the area in the 1st century AD",
-              "A group of Africans who settled in the area in the 2nd century BC",
-              "A group of Asians who settled in the area in the 3rd century AD"
-            ],
-            "answer": "A",
-            "explanation": "The Nabataeans were a group of Arabs who settled in the area in the 6th century BC and established a thriving civilization"
-          },
-          {
-            "id": 3,
-            "question": "What was the Treasury?",
-            "options": [
-              "A magnificent temple that was carved into the face of a mountain",
-              "A royal palace that was built in the center of the city",
-              "A marketplace where goods were sold",
-              "A place of worship for the local people"
-            ],
-            "answer": "A",
-            "explanation": "The Treasury was a magnificent temple that was carved into the face of a mountain and is considered one of the most impressive architectural achievements of the ancient world"
-          },
-          {
-            "id": 4,
-            "question": "What happened to the city of Petra?",
-            "options": [
-              "It was destroyed by an earthquake",
-              "It was abandoned and remained hidden for many centuries",
-              "It was conquered by a rival empire",
-              "It continued to thrive and grow"
-            ],
-            "answer": "B",
-            "explanation": "The city of Petra began to decline in the 4th century AD, and it was eventually abandoned, remaining hidden for many centuries"
-          },
-          {
-            "id": 5,
-            "question": "Why is the city of Petra important?",
-            "options": [
-              "It is a UNESCO World Heritage site",
-              "It is a source of pride and inspiration for the people of Jordan",
-              "It is a testament to the ingenuity and creativity of the human spirit",
-              "All of the above"
-            ],
-            "answer": "D",
-            "explanation": "The city of Petra is a UNESCO World Heritage site, a source of pride and inspiration for the people of Jordan, and a testament to the ingenuity and creativity of the human spirit"
-          },
-          {
-            "id": 6,
-            "question": "What can be learned from the study of Petra?",
-            "options": [
-              "The history of the ancient world",
-              "The development of human civilization",
-              "The engineering techniques used by the Nabataeans",
-              "All of the above"
-            ],
-            "answer": "D",
-            "explanation": "The study of Petra has shed light on the history of the ancient world, provided valuable insights into the development of human civilization, and has also provided a fascinating subject for engineers and architects to study"
-          },
-          {
-            "id": 7,
-            "question": "What is the significance of the city's strategic location?",
-            "options": [
-              "It allowed the city to control the flow of goods and people between the Arabian Peninsula and the Mediterranean region",
-              "It made the city a major center of trade and commerce",
-              "It provided a unique perspective on the ancient world",
-              "It had no significant impact on the city's development"
-            ],
-            "answer": "A",
-            "explanation": "The city's strategic location allowed it to control the flow of goods and people between the Arabian Peninsula and the Mediterranean region, making it an important center of trade and commerce"
-          },
-          {
-            "id": 8,
-            "question": "What is the current status of the city of Petra?",
-            "options": [
-              "It is a thriving city with a large population",
-              "It is a UNESCO World Heritage site and a major tourist destination",
-              "It is a abandoned and forgotten city",
-              "It is a place of worship for the local people"
-            ],
-            "answer": "B",
-            "explanation": "The city of Petra is a UNESCO World Heritage site and is considered one of the most important archaeological sites in the world, attracting millions of visitors each year"
-          }
-        ]
-      },
       {
         "type": "reading",
         "title": "The Impact of Climate Change on Marine Ecosystems",

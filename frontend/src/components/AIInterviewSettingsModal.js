@@ -72,9 +72,9 @@ const AIInterviewSettingsModal = ({ isOpen, onClose, onSave }) => {
   ];
 
   const speechSpeedOptions = [
-    { value: 'slow', label: 'Slow (1.0x)' },
-    { value: 'medium', label: 'Medium (1.2x)' },
-    { value: 'fast', label: 'Fast (1.4x)' }
+    { value: 'slow', label: 'Slow (0.9x)' },
+    { value: 'medium', label: 'Medium (1.0x)' },
+    { value: 'fast', label: 'Fast (1.15x)' }
   ];
 
   const sttModeOptions = [
@@ -97,7 +97,7 @@ const AIInterviewSettingsModal = ({ isOpen, onClose, onSave }) => {
             bottom: 0,
             background: 'rgba(0,0,0,0.7)',
             backdropFilter: 'blur(5px)',
-            zIndex: 1000,
+            zIndex: 4000,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',

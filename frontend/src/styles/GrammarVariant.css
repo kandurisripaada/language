@@ -115,6 +115,22 @@
     height: 64px;
     border-radius: 50%;
     /* Minimalist circle buttons */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+/* Start/Stop have text, so use pill button instead of strict circle */
+.practice-container.grammar-mode .control-btn.start-btn,
+.practice-container.grammar-mode .control-btn.stop-btn {
+    width: auto;
+    min-width: 160px;
+    height: 56px;
+    border-radius: 999px;
+    padding: 0 18px;
+    gap: 8px;
 }
 
 /* Hide Visualizer Container in Grammar Mode */

@@ -82,6 +82,36 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
+    align-items: stretch;
+}
+
+.dashboard-left-column,
+.dashboard-right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    /* Extended height for both sides */
+    height: 1040px;
+}
+
+.dashboard-left-column {
+    /* Keep sections as separate blocks; only lists scroll */
+    overflow: visible;
+}
+
+.dashboard-right-column {
+    overflow: visible;
+}
+
+.dashboard-section {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.dashboard-left-column .dashboard-section,
+.dashboard-right-column .dashboard-section {
+    flex: 1;
 }
 
 .dashboard-section h2 {
@@ -93,6 +123,10 @@
 .practice-modes-grid {
     display: grid;
     gap: 16px;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding-right: 12px;
 }
 
 .practice-mode-card {
@@ -136,7 +170,32 @@
 .activity-list {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
+    flex: 1;
+    min-height: 0;
+    max-height: 1000px;
+    overflow-y: auto;
+    padding-right: 12px;
+}
+
+/* Custom Scrollbar for Recent Activity */
+.activity-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.activity-list::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.activity-list::-webkit-scrollbar-thumb {
+    background: var(--accent-primary);
+    border-radius: 10px;
+    opacity: 0.8;
+}
+
+.activity-list::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-secondary);
 }
 
 .activity-item {
@@ -169,6 +228,7 @@
     margin-bottom: 4px;
     display: -webkit-box;
     -webkit-line-clamp: 1;
+    line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -176,6 +236,56 @@
 .activity-details p {
     color: var(--text-tertiary);
     font-size: 0.85rem;
+}
+
+.vocab-word-hover {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.vocab-word {
+    cursor: default;
+}
+
+.vocab-tooltip {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 10px);
+    z-index: 10;
+    width: min(360px, 80vw);
+    background: rgba(10, 10, 10, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: white;
+    padding: 12px 14px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    display: none;
+}
+
+.vocab-word-hover:hover .vocab-tooltip {
+    display: block;
+}
+
+.vocab-tooltip-meaning {
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 10px;
+    line-height: 1.25;
+}
+
+.vocab-tooltip-examples {
+    font-size: 0.9rem;
+    line-height: 1.35;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.vocab-tooltip-example {
+    margin-bottom: 6px;
+}
+
+.vocab-tooltip-example:last-child {
+    margin-bottom: 0;
 }
 
 .score-badge {
@@ -212,5 +322,16 @@
 @media (max-width: 768px) {
     .dashboard-content {
         grid-template-columns: 1fr;
+    }
+
+    .dashboard-left-column,
+    .dashboard-right-column {
+        overflow: visible;
+        height: auto;
+    }
+
+    .practice-modes-grid {
+        overflow: visible;
+        padding-right: 0;
     }
 }

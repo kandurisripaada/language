@@ -420,9 +420,16 @@ const PracticeSession = ({ practiceType, question, onNewQuestion, onSessionCompl
               countdown > 0 ? (
                 <div className="countdown">{countdown}</div>
               ) : (
-                <button className="control-btn start-btn" onClick={startRecordingFlow} disabled={isProcessing}>
-                  {isProcessing ? 'Processing...' : <><FiMic /> Start Speaking</>}
-                </button>
+                <>
+                  <button className="control-btn start-btn" onClick={startRecordingFlow} disabled={isProcessing}>
+                    {isProcessing ? 'Processing...' : <><FiMic /> Start Speaking</>}
+                  </button>
+                  {(transcript || interimTranscript) && !isProcessing && !isAnalyzing && (
+                    <button className="finish-btn" onClick={handleFinish}>
+                      <FiCheck /> {variant === 'grammar' ? 'Submit & Next' : 'End Session & View Results'}
+                    </button>
+                  )}
+                </>
               )
             ) : (
               <>
@@ -438,12 +445,7 @@ const PracticeSession = ({ practiceType, question, onNewQuestion, onSessionCompl
 
           </div>
 
-          {(transcript || interimTranscript) && !isRecording && !isProcessing && (
-            !isAnalyzing ? (
-              <button className="finish-btn" onClick={handleFinish}>
-                <FiCheck /> {variant === 'grammar' ? 'Submit & Next' : 'End Session & View Results'}
-              </button>
-            ) : (
+          {(transcript || interimTranscript) && !isRecording && !isProcessing && isAnalyzing && (
               <div className="analyzing-status" style={{
                 background: 'rgba(0, 212, 255, 0.1)',
                 border: '1px solid var(--accent-primary)',
@@ -460,7 +462,6 @@ const PracticeSession = ({ practiceType, question, onNewQuestion, onSessionCompl
                 <FiCpu className="spin" style={{ fontSize: '1.2rem' }} />
                 <span style={{ fontWeight: 500 }}>{loadingMessage}</span>
               </div>
-            )
           )}
         </div>
       </div>

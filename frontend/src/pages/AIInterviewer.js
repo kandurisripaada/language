@@ -237,8 +237,8 @@ const AIInterviewer = () => {
     window.speechSynthesis.cancel();
     setAiState('idle');
 
-    // Save Session to Backend
-    if (chatHistory.length > 2) { // Only save if there was actual interaction
+    // Save Session to Backend only for interviewer mode (not AI Bot mode)
+    if (aiMode !== 'bot' && chatHistory.length > 2) { // Only save if there was actual interaction
         const duration = Math.round((Date.now() - (sessionStartTimeRef.current || Date.now())) / 1000);
         const fullTranscript = chatHistory.map(m => `${m.role === 'user' ? 'Candidate' : 'Interviewer'}: ${m.text}`).join('\n');
         
@@ -262,6 +262,9 @@ const AIInterviewer = () => {
         } catch (err) {
             console.error("Failed to save session:", err);
         }
+    } else if (aiMode === 'bot') {
+        // Bot mode is conversational assistant mode, not a scored practice session.
+        toast('AI Bot session is not added to practice scores.', { icon: 'ℹ️' });
     }
   };
 
@@ -294,16 +297,16 @@ const AIInterviewer = () => {
       utterance.voice = selectedVoice;
     }
     
-    // Adjusted speed values for more natural, smooth speech
+    // Tuned speech values for a more natural interview tone
     const speedMap = {
       'slow': 0.9,      // Slower and clearer
-      'medium': 1.1,    // Natural, comfortable pace
-      'fast': 1.3       // Quick but not rushed
+      'medium': 1.0,    // More human-like default pacing
+      'fast': 1.15      // Slightly faster but still natural
     };
-    utterance.rate = speedMap[interviewSettings.speed] || 1.1;
+    utterance.rate = speedMap[interviewSettings.speed] || 1.0;
     
-    // Lower pitch slightly for more professional, less robotic sound
-    utterance.pitch = 0.95;
+    // Keep pitch neutral for a less robotic, less "synthetic" tone.
+    utterance.pitch = 1.0;
     
     // Set volume to maximum for clarity
     utterance.volume = 1.0;

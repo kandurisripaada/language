@@ -144,7 +144,7 @@ const ListenReadPractice = () => {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             },
             body: JSON.stringify({
-                type: mode === 'listening' ? 'Listen & Read (Listening)' : 'Listen & Read (Reading)',
+                type: mode, // Sends 'listening' or 'reading' directly
                 topic: content.title,
                 score: correct,
                 totalQuestions: content.questions.length,

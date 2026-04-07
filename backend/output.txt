@@ -1,0 +1,90 @@
+HISTORY ARRAY:
+[
+  {
+    "id": "69c63cbd1baf50ce172c621a",
+    "type": "grammar",
+    "topic": "INTERMEDIATE - 1 Questions",
+    "score": 80,
+    "date": "2026-03-27T08:15:57.948Z",
+    "duration": 14
+  },
+  {
+    "id": "69c633db07fe689995926ede",
+    "type": "grammar",
+    "topic": "INTERMEDIATE - 2 Questions",
+    "score": 85,
+    "date": "2026-03-27T07:38:03.431Z",
+    "duration": 23
+  },
+  {
+    "id": "69c571b5f26bb96a8af97627",
+    "type": "grammar",
+    "topic": "While I was waiting for the bus, I read a book and listened to music on my phone.",
+    "score": 95,
+    "date": "2026-03-26T17:49:41.141Z",
+    "duration": 6
+  },
+  {
+    "id": "69c5717ef26bb96a8af9761f",
+    "type": "grammar",
+    "topic": "If it hadn't rained, we would have gone to the beach and enjoyed the sunshine.",
+    "score": 80,
+    "date": "2026-03-26T17:48:46.735Z",
+    "duration": 7
+  },
+  {
+    "id": "69c5717ef26bb96a8af9761d",
+    "type": "grammar",
+    "topic": "The tourists got lost in the city because they didn't have a map and couldn't speak the language.",
+    "score": 80,
+    "date": "2026-03-26T17:48:46.542Z",
+    "duration": 7
+  },
+  {
+    "id": "69c5717ef26bb96a8af9761b",
+    "type": "grammar",
+    "topic": "By next year, I will have been studying English for five years and will be ready to take a proficiency exam.",
+    "score": 90,
+    "date": "2026-03-26T17:48:46.177Z",
+    "duration": 8
+  },
+  {
+    "id": "69c5717ef26bb96a8af97619",
+    "type": "grammar",
+    "topic": "The new smartphone is equipped with advanced technology and has a long-lasting battery.",
+    "score": 80,
+    "date": "2026-03-26T17:48:46.078Z",
+    "duration": 0
+  },
+  {
+    "id": "69c5717ef26bb96a8af97617",
+    "type": "grammar",
+    "topic": "The manager of the store apologized for the mistake and offered a discount on our next purchase.",
+    "score": 95,
+    "date": "2026-03-26T17:48:46.059Z",
+    "duration": 8
+  },
+  {
+    "id": "69c56f92b5176905fb618b46",
+    "type": "interview",
+    "topic": "AI Session (Bot Mode)",
+    "score": 60,
+    "date": "2026-03-26T17:40:34.927Z",
+    "duration": 55
+  },
+  {
+    "id": "69c56f2db5176905fb618b42",
+    "type": "topic",
+    "topic": "How can we maintain a healthy work-life balance in a remote work setup?",
+    "score": 60,
+    "date": "2026-03-26T17:38:53.866Z",
+    "duration": 27
+  }
+]
+Sessions this week: 10
+Unique dates: ["27/3/2026","26/3/2026"]
+Today string: 27/3/2026
+Matched day 0 (27/3/2026)
+Matched day 1 (26/3/2026)
+Did not match day 2 (25/3/2026), breaking.
+Final computed streak: 2
